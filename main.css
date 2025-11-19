@@ -82,3 +82,11 @@ p {
     h3 { font-size: 1.1em; }
     p { font-size: 0.9rem; }
   }
+
+    .scallop{
+      height:12px;
+      background:
+        radial-gradient(12px 12px at 6px 0, var(--amber) 98%, transparent 100%)
+        repeat-x left bottom / 12px 12px;
+      width:100vw; margin-left:50%; transform:translateX(-50%); /* full-bleed align */
+    }
