@@ -1,3 +1,357 @@
+<!DOCTYPE html>
 <html>
-  
+<head>
+    <title>The Honey Den - About Us</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://use.typekit.net/wsm3uvp.css">
+    <style>
+        /* Existing Styles (for reference - these should mainly live in main.css or head <style>) */
+        header{
+            background-color:#E8AA54;
+            text-align:center;
+            padding: 4rem;
+        }
+        /* ... (Keep relevant styles from your current HTML <style> block) ... */
+        
+        /* --- NEW ABOUT PAGE SPECIFIC STYLES --- */
+        
+        /* Hero Section */
+        .about-header {
+            background-color:#E8AA54;
+            text-align:center;
+            padding: 6rem; 
+            position: relative;
+        }
+        .about-header h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        .wave-divider {
+            /* This style is repeated in your existing HTML <style>, but is crucial here */
+            width: 100%;
+            height: 56px; 
+            background-image: url('wave-divider.png'); 
+            background-repeat: repeat-x; 
+            background-size: auto 100%;
+            background-position: bottom;
+            display: block;
+            position: absolute; /* Allows it to overlap the section below slightly */
+            bottom: -20px;
+            left: 0;
+        }
+        
+        /* Mission Section */
+        .mission-section {
+            display: flex;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 4rem auto 6rem auto;
+            padding: 0 2rem;
+            align-items: flex-start;
+        }
+        .mission-section h2 {
+            flex: 0 0 300px; /* Fixed width for the title column */
+            margin-top: 0;
+            line-height: 1.2;
+            color: #4A1C17;
+        }
+        .mission-section .text-content {
+            flex-grow: 1;
+        }
+
+        /* Why We Care Section */
+        .care-section {
+            max-width: 1200px;
+            margin: 0 auto 6rem auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        .care-section h2 {
+            margin-bottom: 3rem;
+        }
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .stat-card {
+            flex: 1;
+            min-width: 250px;
+            padding: 2rem;
+            text-align: center;
+        }
+        .stat-icon {
+            /* Placeholder for the grey square visual */
+            width: 100px; 
+            height: 100px;
+            background-color: #EFEFEF; 
+            border-radius: 8px;
+            margin: 0 auto 1.5rem auto;
+        }
+        .stat-number {
+            font-family: "libre-bodoni", sans-serif;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #9D3515;
+            margin: 0.5rem 0;
+        }
+        .stat-card p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: #555;
+        }
+        
+        /* Purchase Helps Section */
+        .help-section {
+            display: flex;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+            align-items: flex-start;
+        }
+        .help-section h2 {
+            flex: 0 0 300px;
+            margin-top: 0;
+            line-height: 1.2;
+            color: #4A1C17;
+        }
+        .help-section .text-content {
+            flex-grow: 1;
+            padding-top: 0.5rem; /* Align text better with title */
+        }
+
+        .visit-section {
+        background-color: #f7ebda;
+        padding: 60px 10%;
+        font-family: "libre-bodoni", serif;
+        text-align: left;
+        }
+
+        .visit-section h2 {
+        font-size: 2.3rem;
+        font-weight: 700;
+        color: #3b231b;
+        margin-bottom: 20px;
+        }
+
+        .map-container {
+        width: 100%;
+        max-width: 1000px;
+        height: 300px;
+        border-radius: 18px;
+        overflow: hidden;
+        margin: 0 auto;
+        box-shadow: 0px 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        }
+
+        .map-address {
+        text-align: center;
+        margin-top: 18px;
+        font-size: 1rem;
+        font-family: "Source Sans Pro", sans-serif;
+        color: #4a3b35;
+        }
+
+        /* IG Section (Reused styles from home page) */
+        .ig-loop-about {
+            margin-bottom: 6rem;
+        }
+        
+        /* Media Queries for Responsiveness */
+        @media (max-width: 1024px) {
+            .mission-section, .help-section {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .mission-section h2, .help-section h2 {
+                flex: none;
+                width: 100%;
+                text-align: center;
+            }
+        }
+        @media (max-width: 768px) {
+            .about-header {
+                padding: 4rem 1rem 1rem 1rem;
+            }
+            .about-header h1 {
+                font-size: 2.5em;
+            }
+            .stats-container {
+                flex-direction: column;
+                gap: 3rem;
+            }
+            .stat-card {
+                min-width: unset;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="about-header">
+        <div style="position: absolute; top: 1.5rem; left: 2rem; display: flex; align-items: center; gap: 0.5rem;">
+            <div style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid #9D3515;"></div>
+            <p style="margin: 0; color: #3D1713; font-weight: 600;">The Honey Den</p>
+        </div>
+        <div style="position: absolute; top: 1.5rem; right: 2rem; display: flex; gap: 2rem;">
+            <a href="index.html" style="color: #3D1713; text-decoration: none;">Home</a>
+            <a href="menu.html" style="color: #3D1713; text-decoration: none;">Menu</a>
+            <a href="store.html" style="color: #3D1713; text-decoration: none;">Store</a>
+            <a href="about.html" style="color: #3D1713; text-decoration: none;">About Us</a>
+        </div>
+        
+        <h1>Meet The Honey Den</h1>
+        <div class="wave-divider"></div>
+    </div>
+    
+    <main>
+    
+        <section class="mission-section">
+            <h2>Our Mission</h2>
+            <div class="text-content">
+                <p>At The Honey Den, we believe that every cup of coffee can make the world a little sweeter. Our mission is to craft warm, comforting brews that bring people together — while giving back to the wild places that inspire us.</p>
+                <p>A portion of every purchase supports wildlife conservation, giving back $1 from every cup to protect local forests and the creatures that make our world whole. Every order helps us keep our promise: to build a cozy community with a purpose, to sip sustainably, live warmly, and care for the creatures that share our world.</p>
+            </div>
+        </section>
+
+        <section class="care-section">
+            <h2>Why We Care</h2>
+            
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon"></div>
+                    <h3 class="stat-number">80%</h3>
+                    <p>of land plants and species depend on forests</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon"></div>
+                    <h3 class="stat-number">40%</h3>
+                    <p>of all species are vulnerable to extinction</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon"></div>
+                    <h3 class="stat-number">10 billion</h3>
+                    <p>forest trees were lost between 2010 - 2020</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="help-section">
+            <h2>How Your Purchase Helps</h2>
+            <div class="text-content">
+                <p>A portion of every purchase at The Honey Den goes directly to conservation partners working to protect wild places, pollinators, and forest ecosystems.</p>
+                <p>With each cup, you're helping ensure that bears have habitat, bees have blooms, and forests stay strong for generations to come.</p>
+            </div>
+        </section>
+        
+        <!--IG SECTION -->
+      <section style="margin-top:4rem; margin-bottom:4rem; ">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin: 4rem auto 1rem auto; 
+        max-width:1200px;">
+            <div style="text-align:left; display:flex; flex-direction: column; margin-bottom:0.5rem;">
+                <h2 style="margin:0;">Join the Hive</h2>
+                <p style="margin:0;">Follow us on Instagram and Facebook to stay in the know!</p>
+            </div>
+            <div style="gap:1rem; display:flex; color:#9D3515;">
+                <a href="https://www.instagram.com/yourhandle" target="_blank">
+                    <img src="images/instagram.png" width="40px">
+                </a>
+                <a href="https://www.facebook.com/yourhandle" target="_blank">
+                    <img src="images/facebook.png" width="40px">
+                </a>
+            </div>
+        </div>
+    
+        <div class="scroll-container ig-loop">
+            <div class="ig-card">
+                <img src="images/the-honey-bear-latte-post.png" alt="The Honey Bear Latte Post">
+            </div>
+            <div class="ig-card">
+                <img src="images/cinnamon-bear-roll-post.png" alt="Cinnamon Bear Roll Post">
+            </div>
+            <div class="ig-card">
+                <img src="images/bear-mug-post.png" alt="Bear Mug Post">
+            </div>
+            <div class="ig-card">
+                <img src="images/golden-drizzle-latte-cup-post.png" alt="Golden Drizzle Latte Cup Post">
+            </div>
+            <div class="ig-card">
+                <img src="images/our-shop.png" alt="Our Shop">
+            </div>
+            <div class="ig-card">
+                <img src="images/frosted-forest-mocha-ig.png" alt="Frosted Forest Mocha">
+            </div>
+            <div class="ig-card">
+                <img src="images/lavender-honey-tea.png" alt="Lavender Honey Tea">
+            </div>
+            <div class="ig-card">
+                <img src="images/inside-post.png" alt="Inside Shop View Post">
+            </div>
+            <div class="ig-card">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Honey Jar">
+            </div>
+
+        </div>
+    </section>
+        
+        <div class="divider"></div>
+        <section class="visit-section">
+            <h2>Come Visit</h2>
+        
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2980.282397039336!2d-91.34882112381057!3d41.67124417834002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87e47392ffba550f%3A0x1487d6427165a170!2sThe%20Honey%20Den!5e0!3m2!1sen!2sus!4v1763564369012!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    
+                </iframe>
+            </div>
+        
+            <p class="map-address">Find us at 123 Coffee Lane, Brewtown.</p>
+        </section>
+      
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const outer = document.querySelector(".ig-loop");
+          if (!outer) return;
+        
+          const track = document.createElement("div");
+          track.className = "ig-track";
+        
+          // Move all current child nodes (the .ig-card elements) into the track
+          while (outer.firstChild) {
+            // Only move node if it's an element node (to skip text/comments)
+            if (outer.firstChild.nodeType === 1) {
+                track.appendChild(outer.firstChild);
+            } else {
+                outer.removeChild(outer.firstChild);
+            }
+          }
+        
+          // Duplicate the contents for a seamless loop
+          track.innerHTML += track.innerHTML;
+        
+          // Append the track back into the outer wrapper
+          outer.appendChild(track);
+        
+          // (Optional) small tweak: if there are very few items, reduce animation speed
+          const cards = track.querySelectorAll(".ig-card");
+          if (cards.length < 6) {
+            track.style.animationDuration = "20s";
+          }
+        });
+    </script>
+        
+
+</body>
 </html>
