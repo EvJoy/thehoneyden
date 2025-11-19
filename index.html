@@ -33,8 +33,9 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 2em;
-        margin-left:4rem;
+        margin: 4rem auto 1rem auto; 
+        max-width:1200px;
+
         }
 
         .scroll-container {
@@ -63,7 +64,7 @@
 
         .menu-card img {
         width: 100%;
-        height: 180px;
+        height: auto;
         object-fit: cover;
             
         }
@@ -83,50 +84,6 @@
 
         section{
 
-        }
-
-        .ig-card img{
-            height: 300px;
-            width:200px;
-            flex: 0 0 240px; /* card width */
-            background-color: #fbfbfb;
-            border-radius: 12px;
-            text-align: center;
-            scroll-snap-align: start;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-        }
- 
-        .ig-loop {
-        overflow: hidden;         /* clip */
-        position: relative;
-        width: 100%;
-        box-sizing: border-box;
-        }
-
-        .ig-track {
-        display: flex;
-        gap: 1.5em;
-        align-items: center;
-        width: max-content;     
-        animation: igScroll 30s linear infinite;
-        will-change: transform;
-        }
-
-        .ig-loop:hover .ig-track {
-        animation-play-state: paused;
-        }
-
-        .ig-loop .ig-card {
-        flex: 0 0 auto;
-        }
-
-        .ig-card img {
-        height: 300px;
-        width: 200px;
-        border-radius: 12px;
-        object-fit: cover;
-        display: block;
         }
 
         .testimonials {
@@ -242,10 +199,6 @@
         color: #4a3b35;
         }
 
-        @keyframes igScroll {
-        from { transform: translateX(0); }
-        to   { transform: translateX(-50%); }
-        }
 
         @media (max-width: 768px) {
         .sub-header {
@@ -269,187 +222,171 @@
     <main>
     
 <!--MENU SECTION -->
-    <section class="menu-section">
-            <div class="sub-header">
-                <h2>Our Most Popular</h2>
-                <button class="primary-button">Shop Full Menu</button>
-            </div>
+<section class="menu-section">
+    <div class="sub-header">
+        <h2>Our Most Popular</h2>
+        <button class="primary-button">Shop Full Menu</button>
+    </div>
 
-            <div class="scroll-container">
-                <div class="menu-card">
-                    <img src="Products.png" alt="Classic Honey Latte">
-                    <h3>Classic Honey Latte</h3>
-                    <p class="price">$2.50</p>
-                </div>
-
-                <div class="menu-card">
-                    <img src="Products.png" alt="The Honey Bear Latte">
-                    <h3>The Honey Bear Latte</h3>
-                    <p class="price">$5.50</p>
-                </div>
-
-                <div class="menu-card">
-                    <img src="Products.png" alt="Vanilla Maple Latte">
-                    <h3>Vanilla Maple Latte</h3>
-                    <p class="price">$5.25</p>
-                </div>
-
-                <div class="menu-card">
-                    <img src="Products.png" alt="Golden Honey Tea">
-                    <h3>Golden Honey Tea</h3>
-                    <p class="price">$4.25</p>
-                </div>
-
-                <div class="menu-card">
-                    <img src="Products.png" alt="Chai of the Woods">
-                    <h3>Chai of the Woods</h3>
-                    <p class="price">$4.75</p>
-                </div>
-
-                <div class="menu-card">
-                    <img src="Products.png" alt="Honeycomb Croissant">
-                    <h3>Honeycomb Croissant</h3>
-                    <p class="price">$4.50</p>
-                </div>
-
-                <div class="menu-card">
-                    <img src="Products.png" alt="Cinnamon Bear Roll">
-                    <h3>Cinnamon Bear Roll</h3>
-                    <p class="price">$4.75</p>
-                </div>
-
-                <div class="menu-card">
-                    <img src="Products.png" alt="Autumn Woods Latte">
-                    <h3>Autumn Woods Latte</h3>
-                    <p class="price">$5.75</p>
-                </div>
-
-                <div class="menu-card">
-                    <img src="Products.png" alt="Frosted Forest Mocha">
-                    <h3>Frosted Forest Mocha</h3>
-                    <p class="price">$5.95</p>
-                </div>
-            </div>
-            <div class=".scallop">
-            </div>
-    </section>
+    <div class="scroll-container">
+    
+        <div class="menu-card">
+            <img src="images/honey-bear-latte.png" alt="The Honey Bear Latte">
+            <h3>The Honey Bear Latte</h3>
+            <p class="price">$5.50</p>
+        </div>
+    
+        <div class="menu-card">
+            <img src="images/vanilla-maple-latte.png" alt="Vanilla Maple Latte">
+            <h3>Vanilla Maple Latte</h3>
+            <p class="price">$5.25</p>
+        </div>
+    
+        <div class="menu-card">
+            <img src="images/golden-honey-tea.png" alt="Golden Honey Tea">
+            <h3>Golden Honey Tea</h3>
+            <p class="price">$4.25</p>
+        </div>
+    
+        <div class="menu-card">
+            <img src="images/chai-of-the-woods.png" alt="Chai of the Woods">
+            <h3>Chai of the Woods</h3>
+            <p class="price">$4.75</p>
+        </div>
+    
+        <div class="menu-card">
+            <img src="images/honeycomb-croissant.png" alt="Honeycomb Croissant">
+            <h3>Honeycomb Croissant</h3>
+            <p class="price">$4.50</p>
+        </div>
+    
+        <div class="menu-card">
+            <img src="images/cinnamon-bear-roll.png" alt="Cinnamon Bear Roll">
+            <h3>Cinnamon Bear Roll</h3>
+            <p class="price">$4.75</p>
+        </div>
+    
+        <div class="menu-card">
+            <img src="images/autumn-woods-latte.png" alt="Autumn Woods Latte">
+            <h3>Autumn Woods Latte</h3>
+            <p class="price">$5.75</p>
+        </div>
+    
+        <div class="menu-card">
+            <img src="images/frosted-forest-mocha.png" alt="Frosted Forest Mocha">
+            <h3>Frosted Forest Mocha</h3>
+            <p class="price">$5.95</p>
+        </div>
+    </div>
+</section>
 
 <!--STORE SECTION -->
-    <section class="menu-section">
-        <div class="sub-header">
-          <h2>Featured from the Hive</h2>
-          <button class="primary-button">Shop Full Collection</button>
-        </div>
-      
-        <div class="scroll-container">
-          <!-- Coffee Bags -->
-          <div class="menu-card">
-            <img src="Products.png" alt="Honey Bear Blend">
-            <h3>Honey Bear Blend</h3>
-            <p class="price">$14.00</p>
-          </div>
-      
-          <div class="menu-card">
-            <img src="Products.png" alt="Golden Morning Roast">
+<section class="menu-section">
+    <div class="sub-header">
+        <h2>Featured from the Hive</h2>
+        <button class="primary-button">Shop Full Collection</button>
+    </div>
+    <div class="scroll-container">
+        <div class="menu-card">
+            <img src="images/golden-morning-roast-bag.png" alt="Golden Morning Roast Bag">
             <h3>Golden Morning Roast</h3>
             <p class="price">$13.50</p>
-          </div>
-      
-          <div class="menu-card">
-            <img src="Products.png" alt="Forest Mint Espresso">
+        </div>
+        
+        <div class="menu-card">
+            <img src="images/forest-mint-espresso-bag.png" alt="Forest Mint Espresso Bag">
             <h3>Forest Mint Espresso</h3>
             <p class="price">$15.00</p>
-          </div>
-      
-          <div class="menu-card">
-            <img src="Products.png" alt="Maple Grove Brew">
+        </div>
+        
+        <div class="menu-card">
+            <img src="images/maple-grove-brew-bag.png" alt="Maple Grove Brew Bag">
             <h3>Maple Grove Brew</h3>
             <p class="price">$14.50</p>
-          </div>
-      
-          <!-- Honey Jars -->
-          <div class="menu-card">
-            <img src="Products.png" alt="Wildflower Honey Jar">
-            <h3>Wildflower Honey Jar</h3>
-            <p class="price">$12.00</p>
-          </div>
-      
-          <div class="menu-card">
-            <img src="Products.png" alt="Cinnamon Clover Honey">
-            <h3>Cinnamon Clover Honey</h3>
-            <p class="price">$13.00</p>
-          </div>
-      
-          <div class="menu-card">
-            <img src="Products.png" alt="Creamed Honey">
-            <h3>Creamed Honey</h3>
-            <p class="price">$10.00</p>
-          </div>
-      
-          <div class="menu-card">
-            <img src="Products.png" alt="Forest Blossom Honey">
-            <h3>Forest Blossom Honey</h3>
-            <p class="price">$14.00</p>
-          </div>
-      
-          <!-- Mugs -->
-          <div class="menu-card">
-            <img src="Products.png" alt="Honey Bear Mug">
-            <h3>Honey Bear Mug</h3>
-            <p class="price">$16.00</p>
-          </div>
-      
-          <div class="menu-card">
-            <img src="Products.png" alt="Golden Drizzle Latte Cup">
-            <h3>Golden Drizzle Latte Cup</h3>
-            <p class="price">$14.50</p>
-          </div>
-      
-          <div class="menu-card">
-            <img src="Products.png" alt="Forest Tea Mug">
-            <h3>Forest Tea Mug</h3>
-            <p class="price">$15.00</p>
-          </div>
-      
-          <div class="menu-card">
-            <img src="Products.png" alt="Cozy Morning Mug">
-            <h3>Cozy Morning Mug</h3>
-            <p class="price">$17.00</p>
-          </div>
-      
-          <!-- Merchandise -->
-          <div class="menu-card">
-            <img src="Products.png" alt="Beekeeper Tote Bag">
-            <h3>Beekeeper Tote Bag</h3>
-            <p class="price">$20.00</p>
-          </div>
-      
-          <div class="menu-card">
-            <img src="Products.png" alt="Honey Spoon Set">
-            <h3>Honey Spoon Set</h3>
-            <p class="price">$15.00</p>
-          </div>
-      
-          <div class="menu-card">
-            <img src="Products.png" alt="Den Hoodie">
-            <h3>Den Hoodie</h3>
-            <p class="price">$40.00</p>
-          </div>
-      
-          <div class="menu-card">
-            <img src="Products.png" alt="Wooden Coaster Set">
-            <h3>Wooden Coaster Set</h3>
-            <p class="price">$18.00</p>
-          </div>
         </div>
-    </section>
+        
+            <div class="menu-card">
+                <img src="images/wildflower-honey.png" alt="Wildflower Honey Jar">
+                <h3>Wildflower Honey Jar</h3>
+                <p class="price">$12.00</p>
+            </div>
+            
+            <div class="menu-card">
+                <img src="images/cinnamon-clover-honey.png" alt="Cinnamon Clover Honey">
+                <h3>Cinnamon Clover Honey</h3>
+                <p class="price">$13.00</p>
+            </div>
+            
+            <div class="menu-card">
+                <img src="images/creamed-honey.png" alt="Creamed Honey">
+                <h3>Creamed Honey</h3>
+                <p class="price">$10.00</p>
+            </div>
+            
+            <div class="menu-card">
+                <img src="images/forest-blossom-honey.png" alt="Forest Blossom Honey">
+                <h3>Forest Blossom Honey</h3>
+                <p class="price">$14.00</p>
+            </div>
+            
+            <div class="menu-card">
+                <img src="images/bear-mug.png" alt="Honey Bear Mug">
+                <h3>Honey Bear Mug</h3>
+                <p class="price">$16.00</p>
+            </div>
+            
+            <div class="menu-card">
+                <img src="images/golden-drizzle-latte-cup.png" alt="Golden Drizzle Latte Cup">
+                <h3>Golden Drizzle Latte Cup</h3>
+                <p class="price">$14.50</p>
+            </div>
+            
+            <div class="menu-card">
+                <img src="images/forest-tea-mug.png" alt="Forest Tea Mug">
+                <h3>Forest Tea Mug</h3>
+                <p class="price">$15.00</p>
+            </div>
+            
+            <div class="menu-card">
+                <img src="images/cozy-morning-mug.png" alt="Cozy Morning Mug">
+                <h3>Cozy Morning Mug</h3>
+                <p class="price">$17.00</p>
+            </div>
+            
+            <div class="menu-card">
+                <img src="images/beekeeper-tote-bag.png" alt="Beekeeper Tote Bag">
+                <h3>Beekeeper Tote Bag</h3>
+                <p class="price">$20.00</p>
+            </div>
+            
+            <div class="menu-card">
+                <img src="images/honey-spoon-set.png" alt="Honey Spoon Set">
+                <h3>Honey Spoon Set</h3>
+                <p class="price">$15.00</p>
+            </div>
+            
+            <div class="menu-card">
+                <img src="images/den-hoodie.png" alt="Den Hoodie">
+                <h3>Den Hoodie</h3>
+                <p class="price">$40.00</p>
+            </div>
+            
+            <div class="menu-card">
+                <img src="images/wooden-coaster-set.png" alt="Wooden Coaster Set">
+                <h3>Wooden Coaster Set</h3>
+                <p class="price">$18.00</p>
+            </div>
+    </div>
+</section>
+
 
 <!--IG SECTION -->
-      <section>
-        <div style="display: flex; align-items: center; justify-content: flex-start; gap: 2rem; margin: 1rem 4rem;">
-            <div style="text-align:left; display:flex; flex-direction: column;">
-                <h2>Join the Hive</h2>
-                <p>Follow us on Instagram and Facebook to stay in the know!</p>
+      <section style="margin-top:4rem; margin-bottom:4rem; ">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin: 4rem auto 1rem auto; 
+        max-width:1200px;">
+            <div style="text-align:left; display:flex; flex-direction: column; margin-bottom:0.5rem;">
+                <h2 style="margin:0;">Join the Hive</h2>
+                <p style="margin:0;">Follow us on Instagram and Facebook to stay in the know!</p>
             </div>
             <div style="gap:1rem; display:flex; color:#9D3515;">
                 <a href="https://www.instagram.com/yourhandle" target="_blank">
@@ -463,28 +400,28 @@
     
         <div class="scroll-container ig-loop">
             <div class="ig-card">
-                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Honey Jar">
+                <img src="images/the-honey-bear-latte-post.png" alt="The Honey Bear Latte Post">
             </div>
             <div class="ig-card">
-                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Honey Jar">
+                <img src="images/cinnamon-bear-roll-post.png" alt="Cinnamon Bear Roll Post">
             </div>
             <div class="ig-card">
-                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Honey Jar">
+                <img src="images/bear-mug-post.png" alt="Bear Mug Post">
             </div>
             <div class="ig-card">
-                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Honey Jar">
+                <img src="images/golden-drizzle-latte-cup-post.png" alt="Golden Drizzle Latte Cup Post">
             </div>
             <div class="ig-card">
-                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Honey Jar">
+                <img src="images/our-shop.png" alt="Our Shop">
             </div>
             <div class="ig-card">
-                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Honey Jar">
+                <img src="images/frosted-forest-mocha-ig.png" alt="Frosted Forest Mocha">
             </div>
             <div class="ig-card">
-                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Honey Jar">
+                <img src="images/lavender-honey-tea.png" alt="Lavender Honey Tea">
             </div>
             <div class="ig-card">
-                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Honey Jar">
+                <img src="images/inside-post.png" alt="Inside Shop View Post">
             </div>
             <div class="ig-card">
                 <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Honey Jar">
@@ -569,5 +506,6 @@
         });
         </script>
         
+
 </body>
 </html>
