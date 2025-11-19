@@ -57,6 +57,72 @@ p {
     display: inline-block;
     border-radius: 4px;
 }
+.scallop{
+      height:12px;
+      background:
+        radial-gradient(12px 12px at 6px 0, var(--amber) 98%, transparent 100%)
+        repeat-x left bottom / 12px 12px;
+      width:100vw; margin-left:50%; transform:translateX(-50%); /* full-bleed align */
+}
+
+.divider {
+    width: 100%;
+    height: 30px;
+    background-image: url('images/divider.png'); 
+    background-repeat: repeat-x;
+    background-position: center;
+    background-size: auto 100%;
+}
+
+.ig-card img{
+    height: 300px;
+    width:200px;
+    flex: 0 0 240px; /* card width */
+    background-color: #fbfbfb;
+    border-radius: 12px;
+    text-align: center;
+    scroll-snap-align: start;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+}
+
+.ig-loop {
+overflow: hidden;         /* clip */
+position: relative;
+width: 100%;
+box-sizing: border-box;
+}
+
+.ig-track {
+display: flex;
+gap: 1.5em;
+align-items: center;
+width: max-content;     
+animation: igScroll 30s linear infinite;
+will-change: transform;
+}
+
+.ig-loop:hover .ig-track {
+animation-play-state: paused;
+}
+
+.ig-loop .ig-card {
+flex: 0 0 auto;
+}
+
+.ig-card img {
+height: 300px;
+width: 200px;
+border-radius: 12px;
+object-fit: cover;
+display: block;
+}
+
+@keyframes igScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
 
 @media (max-width: 1024px) {
     h1 { font-size: 2.2em; }
@@ -64,7 +130,7 @@ p {
     h3 { font-size: 1.4em; }
   }
   
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
     h1 { font-size: 1.8em; }
     h2 { font-size: 1.5em; }
     h3 { font-size: 1.2em; }
@@ -76,17 +142,9 @@ p {
     }
   }
   
-@media (max-width: 480px) {
+  @media (max-width: 480px) {
     h1 { font-size: 1.5em; }
     h2 { font-size: 1.3em; }
     h3 { font-size: 1.1em; }
     p { font-size: 0.9rem; }
   }
-
-    .scallop{
-      height:12px;
-      background:
-        radial-gradient(12px 12px at 6px 0, var(--amber) 98%, transparent 100%)
-        repeat-x left bottom / 12px 12px;
-      width:100vw; margin-left:50%; transform:translateX(-50%); /* full-bleed align */
-    }
