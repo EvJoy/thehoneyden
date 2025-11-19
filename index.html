@@ -1,1 +1,573 @@
+<html>
+<head>
+    <title>The Honey Den Home Page</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://use.typekit.net/wsm3uvp.css">
+    <style>
+        header{
+            background-color:#E8AA54;
+            text-align:center;
+            padding: 4rem;
+        }
+        .button-group{
+            display: flex;
+            justify-content: center;
+            margin-top:20px;
+            margin-bottom:20px;
+            gap: 2rem; 
+        }
+        .wave-divider {
+            width: 100%;
+            height: 56px; /* matches the height of your image */
+            background-image: url('wave-divider.png'); /* adjust path if needed */
+            background-repeat: repeat-x; /* repeats horizontally */
+            background-size: auto 100%; /* keeps height consistent, width repeats */
+            background-position: bottom;
+            display: block;
+        }
+        .menu-section {
 
+        }
+
+        .sub-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2em;
+        margin-left:4rem;
+        }
+
+        .scroll-container {
+        display: flex;
+        gap: 1.5em;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 1em;
+        scrollbar-width: none; /* Hide scrollbar (Firefox) */
+        }
+
+        .scroll-container::-webkit-scrollbar {
+        display: none; /* Hide scrollbar (Chrome, Safari) */
+        }
+
+        .menu-card {
+        flex: 0 0 240px; /* card width */
+        background-color: #fbfbfb;
+        border: 1px solid rgba(157, 53, 21, 0.3);
+        border-radius: 6px;
+        padding: 1em;
+        text-align: center;
+        scroll-snap-align: start;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .menu-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+            
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+            z-index:99;
+        }
+
+        .menu-card .price {
+            font-family: "Source Sans Pro", sans-serif;
+            font-weight: 600;
+            color: #9D3515;
+            margin: 0;
+        }
+
+        section{
+
+        }
+
+        .ig-card img{
+            height: 300px;
+            width:200px;
+            flex: 0 0 240px; /* card width */
+            background-color: #fbfbfb;
+            border-radius: 12px;
+            text-align: center;
+            scroll-snap-align: start;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+        }
+ 
+        .ig-loop {
+        overflow: hidden;         /* clip */
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+        }
+
+        .ig-track {
+        display: flex;
+        gap: 1.5em;
+        align-items: center;
+        width: max-content;     
+        animation: igScroll 30s linear infinite;
+        will-change: transform;
+        }
+
+        .ig-loop:hover .ig-track {
+        animation-play-state: paused;
+        }
+
+        .ig-loop .ig-card {
+        flex: 0 0 auto;
+        }
+
+        .ig-card img {
+        height: 300px;
+        width: 200px;
+        border-radius: 12px;
+        object-fit: cover;
+        display: block;
+        }
+
+        .testimonials {
+        background-color:#E8AA54;
+        padding: 60px 10%;
+        text-align: center;
+        font-family: "Georgia", serif;
+        }
+
+        .testimonials-header h2 {
+        font-size: 2.3rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: #4a2f25;
+        }
+
+        .testimonials-header p {
+        font-size: 1rem;
+        color: #5e514a;
+        margin-bottom: 40px;
+        font-family: "Inter", sans-serif;
+        }
+
+        .testimonial-cards {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        }
+
+        .testimonial-card {
+        background: white;
+        width: 260px;
+        padding: 20px;
+        border-radius: 12px;
+        text-align: left;
+        box-shadow: 0px 4px 12px rgba(0,0,0,0.05);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 6px 18px rgba(0,0,0,0.1);
+        }
+
+        .profile {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+        }
+
+        .avatar {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #ddd;
+        }
+
+        .name {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #3d2b23;
+        }
+
+        .stars {
+        margin-left: auto;
+        font-size: 0.85rem;
+        color: gold;
+        }
+
+        .review {
+        font-family: "Inter", sans-serif;
+        color: #4f4037;
+        font-size: 0.95rem;
+        line-height: 1.4;
+        }
+        .visit-section {
+        background-color: #f7ebda;
+        padding: 60px 10%;
+        font-family: "Georgia", serif;
+        text-align: left;
+        }
+
+        .visit-section h2 {
+        font-size: 2.3rem;
+        font-weight: 700;
+        color: #3b231b;
+        margin-bottom: 20px;
+        }
+
+        .map-container {
+        width: 100%;
+        max-width: 1000px;
+        height: 300px;
+        border-radius: 18px;
+        overflow: hidden;
+        margin: 0 auto;
+        box-shadow: 0px 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        }
+
+        .map-address {
+        text-align: center;
+        margin-top: 18px;
+        font-size: 1rem;
+        font-family: "Inter", sans-serif;
+        color: #4a3b35;
+        }
+
+        @keyframes igScroll {
+        from { transform: translateX(0); }
+        to   { transform: translateX(-50%); }
+        }
+
+        @media (max-width: 768px) {
+        .sub-header {
+            flex-direction: column;
+            gap: 1em;
+        }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Sample Page</h1>
+        <p>Sip, Smile, and Stay a While</p>
+        <div class="button-group">
+            <button class="primary-button">View Menu</button>
+            <button class="secondary-button">Shop Store</button>
+        </div>
+        <div class="wave-divider"></div>
+    </header>
+    <main>
+    
+<!--MENU SECTION -->
+    <section class="menu-section">
+            <div class="sub-header">
+                <h2>Our Most Popular</h2>
+                <button class="primary-button">Shop Full Menu</button>
+            </div>
+
+            <div class="scroll-container">
+                <div class="menu-card">
+                    <img src="Products.png" alt="Classic Honey Latte">
+                    <h3>Classic Honey Latte</h3>
+                    <p class="price">$2.50</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="Products.png" alt="The Honey Bear Latte">
+                    <h3>The Honey Bear Latte</h3>
+                    <p class="price">$5.50</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="Products.png" alt="Vanilla Maple Latte">
+                    <h3>Vanilla Maple Latte</h3>
+                    <p class="price">$5.25</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="Products.png" alt="Golden Honey Tea">
+                    <h3>Golden Honey Tea</h3>
+                    <p class="price">$4.25</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="Products.png" alt="Chai of the Woods">
+                    <h3>Chai of the Woods</h3>
+                    <p class="price">$4.75</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="Products.png" alt="Honeycomb Croissant">
+                    <h3>Honeycomb Croissant</h3>
+                    <p class="price">$4.50</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="Products.png" alt="Cinnamon Bear Roll">
+                    <h3>Cinnamon Bear Roll</h3>
+                    <p class="price">$4.75</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="Products.png" alt="Autumn Woods Latte">
+                    <h3>Autumn Woods Latte</h3>
+                    <p class="price">$5.75</p>
+                </div>
+
+                <div class="menu-card">
+                    <img src="Products.png" alt="Frosted Forest Mocha">
+                    <h3>Frosted Forest Mocha</h3>
+                    <p class="price">$5.95</p>
+                </div>
+            </div>
+            <div class=".scallop">
+            </div>
+    </section>
+
+<!--STORE SECTION -->
+    <section class="menu-section">
+        <div class="sub-header">
+          <h2>Featured from the Hive</h2>
+          <button class="primary-button">Shop Full Collection</button>
+        </div>
+      
+        <div class="scroll-container">
+          <!-- Coffee Bags -->
+          <div class="menu-card">
+            <img src="Products.png" alt="Honey Bear Blend">
+            <h3>Honey Bear Blend</h3>
+            <p class="price">$14.00</p>
+          </div>
+      
+          <div class="menu-card">
+            <img src="Products.png" alt="Golden Morning Roast">
+            <h3>Golden Morning Roast</h3>
+            <p class="price">$13.50</p>
+          </div>
+      
+          <div class="menu-card">
+            <img src="Products.png" alt="Forest Mint Espresso">
+            <h3>Forest Mint Espresso</h3>
+            <p class="price">$15.00</p>
+          </div>
+      
+          <div class="menu-card">
+            <img src="Products.png" alt="Maple Grove Brew">
+            <h3>Maple Grove Brew</h3>
+            <p class="price">$14.50</p>
+          </div>
+      
+          <!-- Honey Jars -->
+          <div class="menu-card">
+            <img src="Products.png" alt="Wildflower Honey Jar">
+            <h3>Wildflower Honey Jar</h3>
+            <p class="price">$12.00</p>
+          </div>
+      
+          <div class="menu-card">
+            <img src="Products.png" alt="Cinnamon Clover Honey">
+            <h3>Cinnamon Clover Honey</h3>
+            <p class="price">$13.00</p>
+          </div>
+      
+          <div class="menu-card">
+            <img src="Products.png" alt="Creamed Honey">
+            <h3>Creamed Honey</h3>
+            <p class="price">$10.00</p>
+          </div>
+      
+          <div class="menu-card">
+            <img src="Products.png" alt="Forest Blossom Honey">
+            <h3>Forest Blossom Honey</h3>
+            <p class="price">$14.00</p>
+          </div>
+      
+          <!-- Mugs -->
+          <div class="menu-card">
+            <img src="Products.png" alt="Honey Bear Mug">
+            <h3>Honey Bear Mug</h3>
+            <p class="price">$16.00</p>
+          </div>
+      
+          <div class="menu-card">
+            <img src="Products.png" alt="Golden Drizzle Latte Cup">
+            <h3>Golden Drizzle Latte Cup</h3>
+            <p class="price">$14.50</p>
+          </div>
+      
+          <div class="menu-card">
+            <img src="Products.png" alt="Forest Tea Mug">
+            <h3>Forest Tea Mug</h3>
+            <p class="price">$15.00</p>
+          </div>
+      
+          <div class="menu-card">
+            <img src="Products.png" alt="Cozy Morning Mug">
+            <h3>Cozy Morning Mug</h3>
+            <p class="price">$17.00</p>
+          </div>
+      
+          <!-- Merchandise -->
+          <div class="menu-card">
+            <img src="Products.png" alt="Beekeeper Tote Bag">
+            <h3>Beekeeper Tote Bag</h3>
+            <p class="price">$20.00</p>
+          </div>
+      
+          <div class="menu-card">
+            <img src="Products.png" alt="Honey Spoon Set">
+            <h3>Honey Spoon Set</h3>
+            <p class="price">$15.00</p>
+          </div>
+      
+          <div class="menu-card">
+            <img src="Products.png" alt="Den Hoodie">
+            <h3>Den Hoodie</h3>
+            <p class="price">$40.00</p>
+          </div>
+      
+          <div class="menu-card">
+            <img src="Products.png" alt="Wooden Coaster Set">
+            <h3>Wooden Coaster Set</h3>
+            <p class="price">$18.00</p>
+          </div>
+        </div>
+    </section>
+
+<!--IG SECTION -->
+      <section>
+        <div style="display: flex; align-items: center; justify-content: flex-start; gap: 2rem; margin: 1rem 4rem;">
+            <div style="text-align:left; display:flex; flex-direction: column;">
+                <h2>Join the Hive</h2>
+                <p>Follow us on Instagram and Facebook to stay in the know!</p>
+            </div>
+            <div style="gap:1rem; display:flex; color:#9D3515;">
+                <a href="https://www.instagram.com/yourhandle" target="_blank">
+                    <img src="images/instagram.png" width="40px">
+                </a>
+                <a href="https://www.facebook.com/yourhandle" target="_blank">
+                    <img src="images/facebook.png" width="40px">
+                </a>
+            </div>
+        </div>
+    
+        <div class="scroll-container ig-loop">
+            <div class="ig-card">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Honey Jar">
+            </div>
+            <div class="ig-card">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Honey Jar">
+            </div>
+            <div class="ig-card">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Honey Jar">
+            </div>
+            <div class="ig-card">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Honey Jar">
+            </div>
+            <div class="ig-card">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Honey Jar">
+            </div>
+            <div class="ig-card">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Honey Jar">
+            </div>
+            <div class="ig-card">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Honey Jar">
+            </div>
+            <div class="ig-card">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Honey Jar">
+            </div>
+            <div class="ig-card">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Honey Jar">
+            </div>
+
+        </div>
+    </section>
+<div class="divider"></div>
+<!--REVIEW SECTION -->
+<section class="testimonials">
+    <div class="testimonials-header">
+      <h2>What Our Customers Say</h2>
+      <p>Check out the testimonials from our happy customers.</p>
+    </div>
+  
+    <div class="testimonial-cards">
+      <div class="testimonial-card">
+        <div class="profile">
+          <div class="avatar"></div>
+          <span class="name">Jane Doe</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <p class="review">The best coffee I've ever had! Highly recommend.</p>
+      </div>
+  
+      <div class="testimonial-card">
+        <div class="profile">
+          <div class="avatar"></div>
+          <span class="name">John Smith</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <p class="review">A cozy spot with great atmosphere.</p>
+      </div>
+    </div>
+    
+  </section>
+
+  <div class="divider"></div>
+
+<!--MAP SECTION -->
+    <section class="visit-section">
+        <h2>Come Visit</h2>
+    
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2980.282397039336!2d-91.34882112381057!3d41.67124417834002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87e47392ffba550f%3A0x1487d6427165a170!2sThe%20Honey%20Den!5e0!3m2!1sen!2sus!4v1763564369012!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+
+            </iframe>
+        </div>
+    
+        <p class="map-address">Find us at 123 Coffee Lane, Brewtown.</p>
+    </section>
+  
+
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const outer = document.querySelector(".ig-loop");
+          if (!outer) return;
+        
+          // Create the inner track element
+          const track = document.createElement("div");
+          track.className = "ig-track";
+        
+          // Move all current child nodes (the .ig-card elements) into the track
+          while (outer.firstChild) {
+            track.appendChild(outer.firstChild);
+          }
+        
+          // Duplicate the contents for a seamless loop
+          track.innerHTML += track.innerHTML;
+        
+          // Append the track back into the outer wrapper
+          outer.appendChild(track);
+        
+          // (Optional) small tweak: if there are very few items, reduce animation speed
+          const cards = track.querySelectorAll(".ig-card");
+          if (cards.length < 6) {
+            track.style.animationDuration = "20s";
+          }
+        });
+        </script>
+        
+</body>
+</html>
