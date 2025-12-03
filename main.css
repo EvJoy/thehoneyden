@@ -1,3 +1,7 @@
+body{
+    background-color: #FFFBF4;
+}
+
 h1 {
     font-family: "libre-bodoni", sans-serif;
     font-weight: 400;
@@ -5,6 +9,8 @@ h1 {
     font-size: 2.5em;
     color: #3D1713;
     margin-bottom: 0.5em;
+    padding-left: 2rem;
+    padding-right:2rem
 }
 
 h2 {
@@ -14,6 +20,8 @@ h2 {
     font-size: 2em;
     color: #4A1C17;
     margin-bottom: 0.5em;
+    padding-left: 2rem;
+    padding-right:2rem
 }
 
 h3 {
@@ -23,6 +31,8 @@ h3 {
     font-size: 1.5em;
     color: #4A1C17;
     margin-bottom: 0.5em;
+    padding-left: 2rem;
+    padding-right:2rem
 }
 
 p {
@@ -30,7 +40,10 @@ p {
     font-weight: 400;
     font-size: 1rem; 
     color: #3D1713;
+    padding-left: 2rem;
+    padding-right:2rem
 }
+
 
 .primary-button {
     font-family: "Source Sans Pro", sans-serif;
@@ -43,6 +56,9 @@ p {
     text-decoration: none;
     display: inline-block;
     border-radius: 4px;
+}
+.primary-button :hover {
+    transform: scale(1.05); ;
 }
 
 .secondary-button {
@@ -57,22 +73,108 @@ p {
     display: inline-block;
     border-radius: 4px;
 }
-.scallop{
-      height:12px;
-      background:
-        radial-gradient(12px 12px at 6px 0, var(--amber) 98%, transparent 100%)
-        repeat-x left bottom / 12px 12px;
-      width:100vw; margin-left:50%; transform:translateX(-50%); /* full-bleed align */
+
+.hero-header{
+    background-color: #E8AA54;
+    text-align: center;
+    padding: 6rem;
+    position: relative;
+}
+header {
+    background-color: #E8AA54;
+    text-align: center;
+    padding: 4rem;
+    padding-bottom: 1rem;
+    position: relative;
 }
 
-.divider {
+.wave-divider {
     width: 100%;
     height: 30px;
-    background-image: url('images/divider.png'); 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #FFFBF4; /* Body color */
+    background-image: 
+        radial-gradient(circle at 20px 0, #E8AA54 19px, transparent 20px);
+    background-size: 40px 30px;
     background-repeat: repeat-x;
-    background-position: center;
-    background-size: auto 100%;
 }
+
+/*.wave-divider-up {
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #FFFBF4;
+    background-image: 
+        radial-gradient(circle at 20px 30px, #E8AA54 19px, transparent 20px);
+    background-size: 40px 30px;
+    background-repeat: repeat-x;
+}*/
+
+.wave-divider-section {
+    width: 100%;
+    height: 30px;
+    position: relative;
+    background-color: rgba(255, 251, 244, 0);
+    background-image: 
+        radial-gradient(circle at 20px 0, #E8AA54 19px, transparent 20px);
+    background-size: 40px 30px;
+    background-repeat: repeat-x;
+}
+
+/* Scallops on top */
+.wave-divider-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: rgba(255, 251, 244, 0);
+    background-image: 
+        radial-gradient(circle at 20px 0, #E8AA54 19px, transparent 20px);
+    background-size: 40px 30px;
+    background-repeat: repeat-x;
+}
+
+/* Scallops on bottom */
+.wave-divider-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: rgba(255, 251, 244, 0);
+    background-image: 
+        radial-gradient(circle at 20px 0, #E8AA54 19px, transparent 20px);
+    background-size: 40px 30px;
+    background-repeat: repeat-x;
+}
+
+.wave-divider-outline {
+    width: 100%;
+    height: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.wave-divider-outline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-image: 
+        radial-gradient(circle at 20px 0, transparent 18px, #9D3515 19px, #9D3515 20px, transparent 21px);
+    background-size: 40px 30px;
+    background-repeat: repeat-x;
+}
+
 
 .ig-card img{
     height: 300px;
@@ -148,3 +250,6 @@ display: block;
     h3 { font-size: 1.1em; }
     p { font-size: 0.9rem; }
   }
+
+
+  
