@@ -4,27 +4,14 @@
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://use.typekit.net/wsm3uvp.css">
     <style>
-        header{
-            background-color:#E8AA54;
-            text-align:center;
-            padding: 4rem;
-        }
+
         .button-group{
             display: flex;
             justify-content: center;
-            margin-top:20px;
-            margin-bottom:20px;
+            margin-top:4rem;
             gap: 2rem; 
         }
-        .wave-divider {
-            width: 100%;
-            height: 56px; /* matches the height of your image */
-            background-image: url('wave-divider.png'); /* adjust path if needed */
-            background-repeat: repeat-x; /* repeats horizontally */
-            background-size: auto 100%; /* keeps height consistent, width repeats */
-            background-position: bottom;
-            display: block;
-        }
+
         .menu-section {
 
         }
@@ -82,28 +69,24 @@
             margin: 0;
         }
 
-        section{
-
-        }
-
         .testimonials {
         background-color:#E8AA54;
-        padding: 60px 10%;
         text-align: center;
-        font-family: "Georgia", serif;
+        padding: 3rem;
         }
 
         .testimonials-header h2 {
         font-size: 2.3rem;
         font-weight: 700;
-        margin-bottom: 10px;
+        margin-bottom: 1.5rem;
+        margin-top:1rem;
         color: #4a2f25;
         }
 
         .testimonials-header p {
         font-size: 1rem;
         color: #5e514a;
-        margin-bottom: 40px;
+        margin-bottom: 4rem;
         font-family: "Inter", sans-serif;
         }
 
@@ -161,11 +144,14 @@
         font-size: 0.95rem;
         line-height: 1.4;
         }
+
         .visit-section {
         background-color: #f7ebda;
         padding: 60px 10%;
         font-family: "Georgia", serif;
         text-align: left;
+        margin-top: -1.5rem;
+        z-index:0;
         }
 
         .visit-section h2 {
@@ -210,22 +196,23 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to the Sample Page</h1>
+    <header class="hero-header">
+        <h1>Welcome to the Honey Den</h1>
         <p>Sip, Smile, and Stay a While</p>
         <div class="button-group">
-            <button class="primary-button">View Menu</button>
-            <button class="secondary-button">Shop Store</button>
+            <a href="menu.html" class="primary-button">View Menu</a>
+            <a href="store.html" class="secondary-button">Shop Store</a>
         </div>
         <div class="wave-divider"></div>
     </header>
-    <main>
+
+<main>
     
 <!--MENU SECTION -->
 <section class="menu-section">
     <div class="sub-header">
         <h2>Our Most Popular</h2>
-        <button class="primary-button">Shop Full Menu</button>
+        <a href="menu.html" class="primary-button">Shop Full Menu</a>
     </div>
 
     <div class="scroll-container">
@@ -284,7 +271,7 @@
 <section class="menu-section">
     <div class="sub-header">
         <h2>Featured from the Hive</h2>
-        <button class="primary-button">Shop Full Collection</button>
+        <a href="store.html" class="primary-button">Shop Full Collection</a>
     </div>
     <div class="scroll-container">
         <div class="menu-card">
@@ -379,6 +366,7 @@
     </div>
 </section>
 
+<div class="wave-divider-outline" style="margin-top:2rem;"></div>
 
 <!--IG SECTION -->
       <section style="margin-top:4rem; margin-bottom:4rem; ">
@@ -389,10 +377,10 @@
                 <p style="margin:0;">Follow us on Instagram and Facebook to stay in the know!</p>
             </div>
             <div style="gap:1rem; display:flex; color:#9D3515;">
-                <a href="https://www.instagram.com/yourhandle" target="_blank">
+                <a href="https://www.instagram.com/the.honeyden/" target="_blank">
                     <img src="images/instagram.png" width="40px">
                 </a>
-                <a href="https://www.facebook.com/yourhandle" target="_blank">
+                <a href="https://www.facebook.com" target="_blank">
                     <img src="images/facebook.png" width="40px">
                 </a>
             </div>
@@ -418,6 +406,9 @@
                 <img src="images/frosted-forest-mocha-ig.png" alt="Frosted Forest Mocha">
             </div>
             <div class="ig-card">
+                <img src="images/honeyandromo.png" alt="Picture of Honey the Bear and Romo">
+            </div>
+            <div class="ig-card">
                 <img src="images/lavender-honey-tea.png" alt="Lavender Honey Tea">
             </div>
             <div class="ig-card">
@@ -429,12 +420,17 @@
 
         </div>
     </section>
-<div class="divider"></div>
+
+
+
+<div class="wave-divider-up"></div>
+
 <!--REVIEW SECTION -->
 <section class="testimonials">
+    
     <div class="testimonials-header">
       <h2>What Our Customers Say</h2>
-      <p>Check out the testimonials from our happy customers.</p>
+    
     </div>
   
     <div class="testimonial-cards">
@@ -446,7 +442,6 @@
         </div>
         <p class="review">The best coffee I've ever had! Highly recommend.</p>
       </div>
-  
       <div class="testimonial-card">
         <div class="profile">
           <div class="avatar"></div>
@@ -459,7 +454,7 @@
     
   </section>
 
-  <div class="divider"></div>
+  <div class="wave-divider-section"></div>
 
 <!--MAP SECTION -->
     <section class="visit-section">
