@@ -1,3 +1,552 @@
-<html>
-  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Honey Den — Menu</title>
+
+  <!-- Global styles / fonts -->
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://use.typekit.net/wsm3uvp.css">
+
+  <style>
+    :root{
+      --bg:    #FAF6EF;
+      --ink:   #3D1713;
+      --amber: #E8AA54;   /* header + scallops */
+      --line:  rgba(157,53,21,0.18);
+      --max:   1120px;
+      --gap:   18px;
+      --radius: 18px;
+    }
+
+    *{ box-sizing:border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden; /* prevents tiny right-edge gaps in some browsers */
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--ink);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    a{color:inherit; text-decoration:none;}
+
+    .container{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 24px;
+    }
+
+    /* ================================
+       FULL-BLEED SCALLOPS
+     ================================ */
+    .scallop-full {
+      width: 100vw;
+      height: 28px;
+      display: block;
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(28px 28px at 14px 0, var(--amber) 98%, transparent 100%)
+        repeat-x 0 100% / 28px 28px;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* vertical spacing between sections (no horizontal inset) */
+    .section-scallop {
+      margin: 48px 0;
+    }
+
+    /* ================================
+       HEADER
+     ================================ */
+    header.hero{
+      background: var(--amber);
+      color:#fff;
+      padding:18px 0 32px;
+      position:relative;
+    }
+
+    .header-top{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 24px 10px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      font-family:"Source Sans Pro", sans-serif;
+      font-size:0.95rem;
+    }
+
+    .brand-lockup{
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .brand-dot{
+      width:14px;
+      height:14px;
+      border-radius:50%;
+      background:#fff;
+      border:1px solid rgba(0,0,0,0.15);
+    }
+
+    .brand-name{
+      font-family:"Libre Bodoni","libre-bodoni",serif;
+      font-weight:400;
+      font-size:1.1rem;
+      letter-spacing:.02em;
+    }
+
+    .primary-nav{
+      display:flex;
+      gap:18px;
+      font-family:"Source Sans Pro", sans-serif;
+    }
+
+    .primary-nav a{
+      font-size:0.9rem;
+      padding:4px 0;
+      border-bottom:2px solid transparent;
+      color:#fff;
+      font-weight:600;
+    }
+
+    .primary-nav a[aria-current="page"]{
+      border-color:#fff;
+    }
+
+    .header-main{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:6px 24px 24px;
+      text-align:center;
+    }
+
+    .header-main h1{
+      color:#fff;
+      margin:0 0 .3em;
+    }
+
+    .header-main .tag{
+      margin:0;
+      font-family:"Source Sans Pro", sans-serif;
+      font-size:1rem;
+      opacity:.95;
+    }
+
+    /* Scallop hugging the bottom of the header */
+    header.hero::after {
+      content:"";
+      position:absolute;
+      bottom:-28px;
+      left:50%;
+      transform:translateX(-50%);
+      width:100vw;
+      height:28px;
+      background: radial-gradient(28px 28px at 14px 0, var(--amber) 98%, transparent 100%)
+        repeat-x 0 100% / 28px 28px;
+    }
+
+    main{
+      padding:56px 0 48px; /* extra top padding so content clears the header scallop */
+    }
+
+    /* ===== PANELS & GRID ===== */
+    .menu-panel{
+      background:#FFFFFF;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px 0 26px;
+      box-shadow:0 8px 26px rgba(0,0,0,0.04);
+    }
+
+    .menu-panel-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 24px;
+    }
+
+    .menu-panel h2{
+      margin-top:0;
+      margin-bottom:8px;
+    }
+
+    .section-note{
+      margin:0 0 12px;
+      font-family:"Source Sans Pro", sans-serif;
+      font-size:0.95rem;
+      color:#6a5e55;
+    }
+
+    .menu-grid{
+      display:grid;
+      grid-template-columns:repeat(1, minmax(0,1fr));
+      gap:var(--gap);
+    }
+
+    @media (min-width:680px){
+      .menu-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+    }
+
+    @media (min-width:980px){
+      .menu-grid{ grid-template-columns:repeat(4, minmax(0,1fr)); }
+    }
+
+    /* ===== CARD STYLE ===== */
+    .menu-card{
+      background:#fbfbfb;
+      border:1px solid rgba(157,53,21,0.3);
+      border-radius:12px;
+      padding:10px 10px 14px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      transition:transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    /* Image sizing: show full image without cutting it off */
+    .menu-card img{
+      width:100%;
+      max-height:220px;
+      border-radius:10px;
+      object-fit:contain;     /* avoids cropping important parts */
+      background:#f2e6d4;     /* soft backdrop for non-full-bleed images */
+      display:block;
+    }
+
+    .menu-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 8px 16px rgba(0,0,0,0.06);
+    }
+
+    .menu-card-body{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      margin-top:6px;
+    }
+
+    .menu-card-heading{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      gap:8px;
+    }
+
+    .menu-card .item{
+      font-size:1rem;
+      margin:0;
+    }
+
+    /* Prices: Bodoni + reddish brown */
+    .price{
+      font-family:"Libre Bodoni", "libre-bodoni", serif;
+      font-weight:400;
+      font-style:normal;
+      font-size:0.95rem;
+      letter-spacing:0.04em;
+      color:#9D3515;
+      white-space:nowrap;
+    }
+
+    .desc{
+      margin:0;
+      font-family:"Source Sans Pro", sans-serif;
+      font-size:0.95rem;
+    }
+
+    footer{
+      text-align:center;
+      padding:24px;
+      font-family:"Source Sans Pro", sans-serif;
+      font-size:0.9rem;
+      color:#6a5e55;
+    }
+
+    @media (max-width:768px){
+      .container{padding:0 16px;}
+      .header-top{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .primary-nav{
+        flex-wrap:wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER: brand + nav + scallop hugging bottom -->
+  <header class="hero">
+    <div class="header-top">
+      <div class="brand-lockup">
+        <div class="brand-dot"></div>
+        <span class="brand-name">The Honey Den</span>
+      </div>
+      <nav class="primary-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="menu.html" aria-current="page">Menu</a>
+        <a href="store.html">Store</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+
+    <div class="header-main">
+      <h1>The Honey Den Menu</h1>
+      <p class="tag">Cozy. Natural. Made with love.</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- COFFEE -->
+    <section aria-labelledby="coffee-heading">
+      <div class="menu-panel">
+        <div class="menu-panel-inner">
+          <h2 id="coffee-heading">Coffee Creations</h2>
+          <div class="menu-grid">
+            <article class="menu-card">
+              <img src="drinks/honey-bear-latte.png" alt="Honey Bear Latte in a ceramic cup">
+              <div class="menu-card-body">
+                <div class="menu-card-heading">
+                  <h3 class="item">The Honey Bear Latte</h3>
+                  <span class="price">$5.50</span>
+                </div>
+                <p class="desc">Our signature drink — creamy espresso blended with honey and steamed milk, topped with a drizzle of golden sweetness.</p>
+              </div>
+            </article>
+
+            <article class="menu-card">
+              <img src="drinks/den-brew.png" alt="House coffee in a white mug">
+              <div class="menu-card-body">
+                <div class="menu-card-heading">
+                  <h3 class="item">Den Brew (House Coffee)</h3>
+                  <span class="price">$3.25</span>
+                </div>
+                <p class="desc">A rich, smooth roast with notes of caramel and toasted nuts.</p>
+              </div>
+            </article>
+
+            <article class="menu-card">
+              <img src="drinks/espresso-shot.png" alt="Espresso shot in a small cup">
+              <div class="menu-card-body">
+                <div class="menu-card-heading">
+                  <h3 class="item">Espresso Shot</h3>
+                  <span class="price">$2.75</span>
+                </div>
+                <p class="desc">Bold and classic. Straight to the point.</p>
+              </div>
+            </article>
+
+            <article class="menu-card">
+              <img src="drinks/cappuccino.png" alt="Cappuccino with foamed milk art">
+              <div class="menu-card-body">
+                <div class="menu-card-heading">
+                  <h3 class="item">Cappuccino</h3>
+                  <span class="price">$4.50</span>
+                </div>
+                <p class="desc">Perfectly balanced espresso, steamed milk, and velvety foam.</p>
+              </div>
+            </article>
+
+            <article class="menu-card">
+              <img src="drinks/vanilla-maple-latte.png" alt="Vanilla maple latte with drizzle">
+              <div class="menu-card-body">
+                <div class="menu-card-heading">
+                  <h3 class="item">Vanilla Maple Latte</h3>
+                  <span class="price">$5.25</span>
+                </div>
+                <p class="desc">A cozy twist — warm vanilla and pure maple syrup blended into a comforting latte.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FULL-BLEED SCALLOP DIVIDER -->
+    <div class="scallop-full section-scallop" aria-hidden="true"></div>
+
+    <!-- TEA -->
+    <section aria-labelledby="tea-heading">
+      <div class="menu-panel">
+        <div class="menu-panel-inner">
+          <h2 id="tea-heading">Teas &amp; Comfort Sips</h2>
+          <div class="menu-grid">
+            <article class="menu-card">
+              <img src="drinks/honey-matcha-latte.png" alt="Honey matcha latte in a mug">
+              <div class="menu-card-body">
+                <div class="menu-card-heading">
+                  <h3 class="item">Honey Matcha Latte</h3>
+                  <span class="price">$5.25</span>
+                </div>
+                <p class="desc">Earthy ceremonial matcha whisked with steamed milk and a touch of honey — smooth, vibrant, and naturally energizing.</p>
+              </div>
+            </article>
+
+            <article class="menu-card">
+              <img src="drinks/iced-honey-matcha.png" alt="Iced honey matcha with ice cubes">
+              <div class="menu-card-body">
+                <div class="menu-card-heading">
+                  <h3 class="item">Iced Honey Matcha</h3>
+                  <span class="price">$5.25</span>
+                </div>
+                <p class="desc">Refreshing iced matcha lightly sweetened with honey and poured over cold milk for a crisp, green boost.</p>
+              </div>
+            </article>
+
+            <article class="menu-card">
+              <img src="drinks/golden-honey-tea.png" alt="Golden honey tea with lemon and chamomile">
+              <div class="menu-card-body">
+                <div class="menu-card-heading">
+                  <h3 class="item">Golden Honey Tea</h3>
+                  <span class="price">$4.25</span>
+                </div>
+                <p class="desc">A soothing blend of chamomile, lemon, and honey — perfect for slow mornings and quiet moments.</p>
+              </div>
+            </article>
+
+            <article class="menu-card">
+              <img src="drinks/forest-mint-green-tea.png" alt="Green tea with fresh mint leaves">
+              <div class="menu-card-body">
+                <div class="menu-card-heading">
+                  <h3 class="item">Forest Mint Green Tea</h3>
+                  <span class="price">$4.00</span>
+                </div>
+                <p class="desc">Refreshing green tea kissed with wild mint.</p>
+              </div>
+            </article>
+
+            <article class="menu-card">
+              <img src="drinks/chai-of-the-woods.png" alt="Chai tea with cinnamon sticks">
+              <div class="menu-card-body">
+                <div class="menu-card-heading">
+                  <h3 class="item">Chai of the Woods</h3>
+                  <span class="price">$4.75</span>
+                </div>
+                <p class="desc">Spiced black tea brewed with cinnamon, cardamom, and clove.</p>
+              </div>
+            </article>
+
+            <article class="menu-card">
+              <img src="drinks/iced-lavender-honey-tea.png" alt="Iced lavender honey tea with flowers">
+              <div class="menu-card-body">
+                <div class="menu-card-heading">
+                  <h3 class="item">Iced Lavender Honey Tea</h3>
+                  <span class="price">$4.75</span>
+                </div>
+                <p class="desc">Delicate floral notes with a drizzle of honey and a splash of cream (served cold).</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="scallop-full section-scallop" aria-hidden="true"></div>
+
+    <!-- BAKED GOODS -->
+    <section aria-labelledby="baked-heading">
+      <div class="menu-panel">
+        <div class="menu-panel-inner">
+          <h2 id="baked-heading">Baked Goodness</h2>
+          <div class="menu-grid">
+            <article class="menu-card">
+              <img src="bakery/honeycomb-croissant.png" alt="Honeycomb croissant with sugar crystals">
+              <div class="menu-card-body">
+                <div class="menu-card-heading">
+                  <h3 class="item">Honeycomb Croissant</h3>
+                  <span class="price">$4.50</span>
+                </div>
+                <p class="desc">Flaky pastry filled with honey butter and topped with sugar crystals.</p>
+              </div>
+            </article>
+
+            <article class="menu-card">
+              <img src="bakery/cinnamon-bear-roll.png" alt="Cinnamon roll shaped like a bear">
+              <div class="menu-card-body">
+                <div class="menu-card-heading">
+                  <h3 class="item">Cinnamon Bear Roll</h3>
+                  <span class="price">$4.75</span>
+                </div>
+                <p class="desc">Soft, gooey cinnamon roll with honey glaze.</p>
+              </div>
+            </article>
+
+            <article class="menu-card">
+              <img src="bakery/oatmeal-maple-muffin.png" alt="Oatmeal maple muffin with honey drizzle">
+              <div class="menu-card-body">
+                <div class="menu-card-heading">
+                  <h3 class="item">Oatmeal Maple Muffin</h3>
+                  <span class="price">$3.95</span>
+                </div>
+                <p class="desc">Warm and hearty, perfect for pairing with your coffee.</p>
+              </div>
+            </article>
+
+            <article class="menu-card">
+              <img src="bakery/den-biscotti.png" alt="Almond biscotti pieces">
+              <div class="menu-card-body">
+                <div class="menu-card-heading">
+                  <h3 class="item">Den Biscotti</h3>
+                  <span class="price">$3.25</span>
+                </div>
+                <p class="desc">Homemade almond biscotti — simple and sweet.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="scallop-full section-scallop" aria-hidden="true"></div>
+
+    <!-- SEASONAL SPECIALS -->
+    <section aria-labelledby="seasonal-heading">
+      <div class="menu-panel">
+        <div class="menu-panel-inner">
+          <h2 id="seasonal-heading">Seasonal Specials</h2>
+          <p class="section-note">Rotates — ask the barista for availability.</p>
+          <div class="menu-grid">
+            <article class="menu-card">
+              <img src="drinks/autumn-woods-latte.png" alt="Autumn Woods Latte with cream swirl">
+              <div class="menu-card-body">
+                <div class="menu-card-heading">
+                  <h3 class="item">Autumn Woods Latte</h3>
+                  <span class="price">$5.75</span>
+                </div>
+                <p class="desc">Espresso, pumpkin, and honey-spiced cream.</p>
+              </div>
+            </article>
+
+            <article class="menu-card">
+              <img src="drinks/frosted-forest-mocha.png" alt="Frosted Forest Mocha with peppermint topping">
+              <div class="menu-card-body">
+                <div class="menu-card-heading">
+                  <h3 class="item">Frosted Forest Mocha</h3>
+                  <span class="price">$5.95</span>
+                </div>
+                <p class="desc">Chocolate, peppermint, and honey milk — cozy meets winter wonderland.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © The Honey Den • Sip, Smile, and Stay a While
+  </footer>
+</body>
 </html>
