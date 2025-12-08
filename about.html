@@ -11,8 +11,6 @@
             text-align:center;
             padding: 4rem;
         }
-        /* ... (Keep relevant styles from your current HTML <style> block) ... */
-        
         /* --- NEW ABOUT PAGE SPECIFIC STYLES --- */
         
         /* Hero Section */
@@ -26,37 +24,26 @@
             font-size: 3em;
             margin: 0;
         }
-        .wave-divider {
-            /* This style is repeated in your existing HTML <style>, but is crucial here */
-            width: 100%;
-            height: 56px; 
-            background-image: url('wave-divider.png'); 
-            background-repeat: repeat-x; 
-            background-size: auto 100%;
-            background-position: bottom;
-            display: block;
-            position: absolute; /* Allows it to overlap the section below slightly */
-            bottom: -20px;
-            left: 0;
-        }
-        
+
         /* Mission Section */
         .mission-section {
             display: flex;
-            gap: 4rem;
+            gap: 2rem;
             max-width: 1200px;
             margin: 4rem auto 6rem auto;
-            padding: 0 2rem;
-            align-items: flex-start;
+            padding: 0 ;
+            align-items: center;
         }
         .mission-section h2 {
             flex: 0 0 300px; /* Fixed width for the title column */
-            margin-top: 0;
             line-height: 1.2;
             color: #4A1C17;
         }
         .mission-section .text-content {
             flex-grow: 1;
+            width:30%;
+            padding-right:1rem;
+            line-height:1.6;
         }
 
         /* Why We Care Section */
@@ -69,6 +56,7 @@
         .care-section h2 {
             margin-bottom: 3rem;
         }
+
         .stats-container {
             display: flex;
             justify-content: space-around;
@@ -77,17 +65,20 @@
         }
         .stat-card {
             flex: 1;
-            min-width: 250px;
+            min-width: 200px;
             padding: 2rem;
             text-align: center;
-        }
-        .stat-icon {
-            /* Placeholder for the grey square visual */
-            width: 100px; 
-            height: 100px;
-            background-color: #EFEFEF; 
+            background-color: #f7ebda;
+            border: rgba(232, 170, 84, 0.5) 1px solid;
             border-radius: 8px;
-            margin: 0 auto 1.5rem auto;
+        }
+        .stat-img {
+            width: 30%; 
+            height: auto; 
+            object-fit:contain;
+            padding: 1rem;
+            background-color: #FFFBF4;
+            border-radius:99px;
         }
         .stat-number {
             font-family: "libre-bodoni", sans-serif;
@@ -106,21 +97,21 @@
         /* Purchase Helps Section */
         .help-section {
             display: flex;
-            gap: 4rem;
+            gap: 2rem;
             max-width: 1200px;
             margin: 6rem auto;
             padding: 0 2rem;
             align-items: flex-start;
         }
         .help-section h2 {
-            flex: 0 0 300px;
-            margin-top: 0;
+            flex: 0 0 300px; /* Fixed width for the title column */
             line-height: 1.2;
             color: #4A1C17;
         }
         .help-section .text-content {
             flex-grow: 1;
-            padding-top: 0.5rem; /* Align text better with title */
+            padding-right: 0.5rem; /* Align text better with title */
+            line-height:1.6;
         }
 
         .visit-section {
@@ -139,7 +130,7 @@
 
         .map-container {
         width: 100%;
-        max-width: 1000px;
+        max-width: 1200px;
         height: 300px;
         border-radius: 18px;
         overflow: hidden;
@@ -196,51 +187,50 @@
     </style>
 </head>
 <body>
+    <div class="nav-container">
+        <a href="index.html" style="position: absolute; top: 1.5rem; left: 2rem; display: flex; align-items: center; gap: 0.5rem;">
+            <img src="images/honeyden.svg" alt="The Honey Den Logo" width="80px">
+        </a>
+        <nav >
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="store.html">Store</a>
+            <a href="about.html" class="active">About Us</a>
+        </nav>
+    </div>
     
-    <div class="about-header">
-        <div style="position: absolute; top: 1.5rem; left: 2rem; display: flex; align-items: center; gap: 0.5rem;">
-            <div style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid #9D3515;"></div>
-            <p style="margin: 0; color: #3D1713; font-weight: 600;">The Honey Den</p>
-        </div>
-        <div style="position: absolute; top: 1.5rem; right: 2rem; display: flex; gap: 2rem;">
-            <a href="index.html" style="color: #3D1713; text-decoration: none;">Home</a>
-            <a href="menu.html" style="color: #3D1713; text-decoration: none;">Menu</a>
-            <a href="store.html" style="color: #3D1713; text-decoration: none;">Store</a>
-            <a href="about.html" style="color: #3D1713; text-decoration: none;">About Us</a>
-        </div>
-        
+    <header class="about-header">
         <h1>Meet The Honey Den</h1>
         <div class="wave-divider"></div>
-    </div>
+    </header>
     
     <main>
     
         <section class="mission-section">
-            <h2>Our Mission</h2>
+            <h2 style="text-align: right;">Our Mission</h2>
             <div class="text-content">
                 <p>At The Honey Den, we believe that every cup of coffee can make the world a little sweeter. Our mission is to craft warm, comforting brews that bring people together — while giving back to the wild places that inspire us.</p>
-                <p>A portion of every purchase supports wildlife conservation, giving back $1 from every cup to protect local forests and the creatures that make our world whole. Every order helps us keep our promise: to build a cozy community with a purpose, to sip sustainably, live warmly, and care for the creatures that share our world.</p>
+                <p>A portion of every purchase supports wildlife conservation, <b>giving back $1 from every cup to protect local forests and the creatures that make our world whole.</b> Every order helps us keep our promise: to build a cozy community with a purpose, to sip sustainably, live warmly, and care for the creatures that share our world.</p>
             </div>
         </section>
 
         <section class="care-section">
             <h2>Why We Care</h2>
-            
             <div class="stats-container">
                 <div class="stat-card">
-                    <div class="stat-icon"></div>
+                    <img class="stat-img" src="images/mushroom-about.png" alt="Mushroom icon">
                     <h3 class="stat-number">80%</h3>
                     <p>of land plants and species depend on forests</p>
                 </div>
-
+                
                 <div class="stat-card">
-                    <div class="stat-icon"></div>
+                    <img class="stat-img" src="images/bear-about.png" alt="Bear icon">
                     <h3 class="stat-number">40%</h3>
                     <p>of all species are vulnerable to extinction</p>
                 </div>
-
+                
                 <div class="stat-card">
-                    <div class="stat-icon"></div>
+                    <img class="stat-img" src="images/tree-about.png" alt="Tree icon">
                     <h3 class="stat-number">10 billion</h3>
                     <p>forest trees were lost between 2010 - 2020</p>
                 </div>
@@ -255,55 +245,60 @@
             </div>
         </section>
         
-        <!--IG SECTION -->
-      <section style="margin-top:4rem; margin-bottom:4rem; ">
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin: 4rem auto 1rem auto; 
-        max-width:1200px;">
-            <div style="text-align:left; display:flex; flex-direction: column; margin-bottom:0.5rem;">
-                <h2 style="margin:0;">Join the Hive</h2>
-                <p style="margin:0;">Follow us on Instagram and Facebook to stay in the know!</p>
-            </div>
-            <div style="gap:1rem; display:flex; color:#9D3515;">
-                <a href="https://www.instagram.com/yourhandle" target="_blank">
-                    <img src="images/instagram.png" width="40px">
-                </a>
-                <a href="https://www.facebook.com/yourhandle" target="_blank">
-                    <img src="images/facebook.png" width="40px">
-                </a>
-            </div>
-        </div>
-    
-        <div class="scroll-container ig-loop">
-            <div class="ig-card">
-                <img src="images/the-honey-bear-latte-post.png" alt="The Honey Bear Latte Post">
-            </div>
-            <div class="ig-card">
-                <img src="images/cinnamon-bear-roll-post.png" alt="Cinnamon Bear Roll Post">
-            </div>
-            <div class="ig-card">
-                <img src="images/bear-mug-post.png" alt="Bear Mug Post">
-            </div>
-            <div class="ig-card">
-                <img src="images/golden-drizzle-latte-cup-post.png" alt="Golden Drizzle Latte Cup Post">
-            </div>
-            <div class="ig-card">
-                <img src="images/our-shop.png" alt="Our Shop">
-            </div>
-            <div class="ig-card">
-                <img src="images/frosted-forest-mocha-ig.png" alt="Frosted Forest Mocha">
-            </div>
-            <div class="ig-card">
-                <img src="images/lavender-honey-tea.png" alt="Lavender Honey Tea">
-            </div>
-            <div class="ig-card">
-                <img src="images/inside-post.png" alt="Inside Shop View Post">
-            </div>
-            <div class="ig-card">
-                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Honey Jar">
-            </div>
+        <div class="wave-divider-outline" style="margin-top:2rem;"></div>
 
-        </div>
-    </section>
+        <!--IG SECTION -->
+              <section style="margin-top:4rem; margin-bottom:4rem; ">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin: 4rem auto 1rem auto; 
+                max-width:1200px;">
+                    <div style="text-align:left; display:flex; flex-direction: column; margin-bottom:0.5rem;">
+                        <h2 style="margin:0;">Join the Hive</h2>
+                        <p style="margin:0;">Follow us on Instagram and Facebook to stay in the know!</p>
+                    </div>
+                    <div style="gap:1rem; display:flex; color:#9D3515;">
+                        <a href="https://www.instagram.com/the.honeyden/" target="_blank">
+                            <img src="images/instagram.png" width="40px">
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank">
+                            <img src="images/facebook.png" width="40px">
+                        </a>
+                    </div>
+                </div>
+            
+                <div class="scroll-container ig-loop">
+                    <div class="ig-card">
+                        <img src="images/the-honey-bear-latte-post.png" alt="The Honey Bear Latte Post">
+                    </div>
+                    <div class="ig-card">
+                        <img src="images/cinnamon-bear-roll-post.png" alt="Cinnamon Bear Roll Post">
+                    </div>
+                    <div class="ig-card">
+                        <img src="images/bear-mug-post.png" alt="Bear Mug Post">
+                    </div>
+                    <div class="ig-card">
+                        <img src="images/golden-drizzle-latte-cup-post.png" alt="Golden Drizzle Latte Cup Post">
+                    </div>
+                    <div class="ig-card">
+                        <img src="images/our-shop.png" alt="Our Shop">
+                    </div>
+                    <div class="ig-card">
+                        <img src="images/frosted-forest-mocha-ig.png" alt="Frosted Forest Mocha">
+                    </div>
+                    <div class="ig-card">
+                        <img src="images/honeyandromo.png" alt="Picture of Honey the Bear and Romo">
+                    </div>
+                    <div class="ig-card">
+                        <img src="images/lavender-honey-tea.png" alt="Lavender Honey Tea">
+                    </div>
+                    <div class="ig-card">
+                        <img src="images/inside-post.png" alt="Inside Shop View Post">
+                    </div>
+                    <div class="ig-card">
+                        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Honey Jar">
+                    </div>
+        
+                </div>
+            </section>
         
         <div class="divider"></div>
         <section class="visit-section">
@@ -319,6 +314,23 @@
         </section>
       
     </main>
+    <footer 
+        style="
+            background-color: #d59946;
+            padding: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        "
+        >
+        <img src="images/honeyden.svg" style="width: 150px; height: auto;">
+        <nav class="footer-nav" style="position: static;">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="store.html">Store</a>
+            <a href="about.html" class="active">About Us</a>
+        </nav>
+    </footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
