@@ -16,6 +16,71 @@
 
         }
 
+        /* Scroll arrows */
+        .scroll-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-arrow.left {
+            left: 0.5rem;
+        }
+
+        .scroll-arrow.right {
+            right: 0.5rem;
+        }
+
+        .scroll-arrow.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .scroll-arrow::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            border-top: 3px solid #9D3515;
+            border-right: 3px solid #9D3515;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-arrow:hover::before {
+            border-color: #7a2a10;
+            transform: scale(1.2);
+        }
+
+        .scroll-arrow.left::before {
+            transform: rotate(-135deg);
+        }
+
+        .scroll-arrow.right::before {
+            transform: rotate(45deg);
+        }
+
+        .scroll-arrow.left:hover::before {
+            transform: rotate(-135deg) scale(1.2);
+        }
+
+        .scroll-arrow.right:hover::before {
+            transform: rotate(45deg) scale(1.2);
+        }
+
+        /* Hide on mobile */
+        @media (max-width: 768px) {
+            .scroll-arrow {
+                display: none;
+            }
+        }
         .sub-header {
         display: flex;
         justify-content: space-between;
@@ -29,9 +94,13 @@
         display: flex;
         gap: 1.5em;
         overflow-x: auto;
+        overflow-y: hidden;
         scroll-snap-type: x mandatory;
-        padding-bottom: 1em;
-        scrollbar-width: none; /* Hide scrollbar (Firefox) */
+        padding-top: 1em; 
+        padding-bottom: 2em;
+        padding-left: calc(50% - 600px);
+        scrollbar-width: none; 
+        
         }
 
         .scroll-container::-webkit-scrollbar {
@@ -47,6 +116,7 @@
         text-align: center;
         scroll-snap-align: start;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
+        z-index:15;
         }
 
         .menu-card img {
@@ -163,7 +233,7 @@
 
         .map-container {
         width: 100%;
-        max-width: 1000px;
+        max-width: 1200px;
         height: 300px;
         border-radius: 18px;
         overflow: hidden;
@@ -196,6 +266,17 @@
     </style>
 </head>
 <body>
+    <div class="nav-container">
+        <a href="index.html" style="position: absolute; top: 1.5rem; left: 2rem; display: flex; align-items: center; gap: 0.5rem;">
+            <img src="images/honeyden.svg" alt="The Honey Den Logo" width="80px">
+        </a>
+        <nav >
+            <a href="index.html" class="active">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="store.html">Store</a>
+            <a href="about.html">About Us</a>
+        </nav>
+    </div>
     <header class="hero-header">
         <h1>Welcome to the Honey Den</h1>
         <p>Sip, Smile, and Stay a While</p>
@@ -214,57 +295,60 @@
         <h2>Our Most Popular</h2>
         <a href="menu.html" class="primary-button">Shop Full Menu</a>
     </div>
-
-    <div class="scroll-container">
-    
-        <div class="menu-card">
-            <img src="images/honey-bear-latte.png" alt="The Honey Bear Latte">
-            <h3>The Honey Bear Latte</h3>
-            <p class="price">$5.50</p>
-        </div>
-    
-        <div class="menu-card">
-            <img src="images/vanilla-maple-latte.png" alt="Vanilla Maple Latte">
-            <h3>Vanilla Maple Latte</h3>
-            <p class="price">$5.25</p>
-        </div>
-    
-        <div class="menu-card">
-            <img src="images/golden-honey-tea.png" alt="Golden Honey Tea">
-            <h3>Golden Honey Tea</h3>
-            <p class="price">$4.25</p>
-        </div>
-    
-        <div class="menu-card">
-            <img src="images/chai-of-the-woods.png" alt="Chai of the Woods">
-            <h3>Chai of the Woods</h3>
-            <p class="price">$4.75</p>
-        </div>
-    
-        <div class="menu-card">
-            <img src="images/honeycomb-croissant.png" alt="Honeycomb Croissant">
-            <h3>Honeycomb Croissant</h3>
-            <p class="price">$4.50</p>
-        </div>
-    
-        <div class="menu-card">
-            <img src="images/cinnamon-bear-roll.png" alt="Cinnamon Bear Roll">
-            <h3>Cinnamon Bear Roll</h3>
-            <p class="price">$4.75</p>
-        </div>
-    
-        <div class="menu-card">
-            <img src="images/autumn-woods-latte.png" alt="Autumn Woods Latte">
-            <h3>Autumn Woods Latte</h3>
-            <p class="price">$5.75</p>
-        </div>
-    
-        <div class="menu-card">
-            <img src="images/frosted-forest-mocha.png" alt="Frosted Forest Mocha">
-            <h3>Frosted Forest Mocha</h3>
-            <p class="price">$5.95</p>
+    <div class="scroll-wrapper" id="menu-wrapper" style="position: relative;">
+        <div class="scroll-arrow left" id="menu-left"></div>
+        <div class="scroll-arrow right" id="menu-right"></div>
+        <div class="scroll-container">
+            <div class="menu-card">
+                <img src="images/honey-bear-latte.png" alt="The Honey Bear Latte">
+                <h3>The Honey Bear Latte</h3>
+                <p class="price">$5.50</p>
+            </div>
+        
+            <div class="menu-card">
+                <img src="images/vanilla-maple-latte.png" alt="Vanilla Maple Latte">
+                <h3>Vanilla Maple Latte</h3>
+                <p class="price">$5.25</p>
+            </div>
+        
+            <div class="menu-card">
+                <img src="images/golden-honey-tea.png" alt="Golden Honey Tea">
+                <h3>Golden Honey Tea</h3>
+                <p class="price">$4.25</p>
+            </div>
+        
+            <div class="menu-card">
+                <img src="images/chai-of-the-woods.png" alt="Chai of the Woods">
+                <h3>Chai of the Woods</h3>
+                <p class="price">$4.75</p>
+            </div>
+        
+            <div class="menu-card">
+                <img src="images/honeycomb-croissant.png" alt="Honeycomb Croissant">
+                <h3>Honeycomb Croissant</h3>
+                <p class="price">$4.50</p>
+            </div>
+        
+            <div class="menu-card">
+                <img src="images/cinnamon-bear-roll.png" alt="Cinnamon Bear Roll">
+                <h3>Cinnamon Bear Roll</h3>
+                <p class="price">$4.75</p>
+            </div>
+        
+            <div class="menu-card">
+                <img src="images/autumn-woods-latte.png" alt="Autumn Woods Latte">
+                <h3>Autumn Woods Latte</h3>
+                <p class="price">$5.75</p>
+            </div>
+        
+            <div class="menu-card">
+                <img src="images/frosted-forest-mocha.png" alt="Frosted Forest Mocha">
+                <h3>Frosted Forest Mocha</h3>
+                <p class="price">$5.95</p>
+            </div>
         </div>
     </div>
+
 </section>
 
 <!--STORE SECTION -->
@@ -421,8 +505,6 @@
         </div>
     </section>
 
-
-
 <div class="wave-divider-up"></div>
 
 <!--REVIEW SECTION -->
@@ -469,37 +551,105 @@
         <p class="map-address">Find us at 123 Coffee Lane, Brewtown.</p>
     </section>
   
-
+<!--FOOTER SECTION -->
+<footer 
+    style="
+        background-color: #d59946;
+        padding: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    "
+    >
+    <img src="images/honeyden.svg" style="width: 150px; height: auto;">
+    <nav class="footer-nav" style="position: static;">
+        <a href="index.html" class="active">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="store.html">Store</a>
+        <a href="about.html" >About Us</a>
+    </nav>
+</footer>
 
     </main>
 
+
     <script>
+        // Scroll arrow and gradient functionality
+        function setupScrollControls(wrapperId, scrollId, leftArrowId, rightArrowId) {
+            const wrapper = document.getElementById(wrapperId);
+            const container = document.getElementById(scrollId);
+            const leftArrow = document.getElementById(leftArrowId);
+            const rightArrow = document.getElementById(rightArrowId);
+
+            if (!wrapper || !container || !leftArrow || !rightArrow) return;
+
+            function updateArrows() {
+                const scrollLeft = container.scrollLeft;
+                const maxScroll = container.scrollWidth - container.clientWidth;
+
+                // Hide/show arrows
+                if (scrollLeft <= 10) {
+                    leftArrow.classList.add('hidden');
+                    wrapper.classList.remove('show-left-gradient');
+                } else {
+                    leftArrow.classList.remove('hidden');
+                    wrapper.classList.add('show-left-gradient');
+                }
+
+                if (scrollLeft >= maxScroll - 10) {
+                    rightArrow.classList.add('hidden');
+                    wrapper.classList.add('hide-right-gradient');
+                } else {
+                    rightArrow.classList.remove('hidden');
+                    wrapper.classList.remove('hide-right-gradient');
+                }
+            }
+
+            // Arrow click handlers
+            leftArrow.addEventListener('click', () => {
+                container.scrollBy({ left: -300, behavior: 'smooth' });
+            });
+
+            rightArrow.addEventListener('click', () => {
+                container.scrollBy({ left: 300, behavior: 'smooth' });
+            });
+
+            // Update on scroll
+            container.addEventListener('scroll', updateArrows);
+
+            // Initial update
+            updateArrows();
+        }
+
+        // Initialize both sections
+        setupScrollControls('menu-wrapper', 'menu-scroll', 'menu-left', 'menu-right');
+        setupScrollControls('store-wrapper', 'store-scroll', 'store-left', 'store-right');
+
+        // IG Loop animation
         document.addEventListener("DOMContentLoaded", () => {
-          const outer = document.querySelector(".ig-loop");
-          if (!outer) return;
+            const outer = document.querySelector(".ig-loop");
+            if (!outer) return;
         
-          // Create the inner track element
-          const track = document.createElement("div");
-          track.className = "ig-track";
+            const track = document.createElement("div");
+            track.className = "ig-track";
         
-          // Move all current child nodes (the .ig-card elements) into the track
-          while (outer.firstChild) {
-            track.appendChild(outer.firstChild);
-          }
+            while (outer.firstChild) {
+                if (outer.firstChild.nodeType === 1) {
+                    track.appendChild(outer.firstChild);
+                } else {
+                    outer.removeChild(outer.firstChild);
+                }
+            }
         
-          // Duplicate the contents for a seamless loop
-          track.innerHTML += track.innerHTML;
+            track.innerHTML += track.innerHTML;
+            outer.appendChild(track);
         
-          // Append the track back into the outer wrapper
-          outer.appendChild(track);
-        
-          // (Optional) small tweak: if there are very few items, reduce animation speed
-          const cards = track.querySelectorAll(".ig-card");
-          if (cards.length < 6) {
-            track.style.animationDuration = "20s";
-          }
+            const cards = track.querySelectorAll(".ig-card");
+            if (cards.length < 6) {
+                track.style.animationDuration = "20s";
+            }
         });
-        </script>
+    </script>
         
 
 </body>
