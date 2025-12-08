@@ -1,0 +1,17 @@
+<footer 
+    style="
+        background-color: #d59946;
+        padding: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    "
+    >
+    <img src="images/honeyden.svg" style="width: 150px; height: auto;">
+    <nav class="footer-nav" style="position: static;">
+        <a href="index.html" class="active">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="store.html">Store</a>
+        <a href="about.html" >About Us</a>
+    </nav>
+</footer>
