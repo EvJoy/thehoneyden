@@ -1,3 +1,500 @@
 <html>
-  
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Honey Den — Store</title>
+
+  <!-- Global styles / fonts -->
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://use.typekit.net/wsm3uvp.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto 4rem auto;
+      padding: 3rem 2rem 0 2rem;
+    }
+
+    /* Page intro under hero */
+    .store-intro {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .store-intro p {
+      padding-left: 0;
+      padding-right: 0;
+      font-size: 1rem;
+      opacity: 0.85;
+      margin-top: 0;
+    }
+
+    /* Sections (no panel background) */
+    .menu-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .menu-section h2 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .section-note {
+      margin: 0 0 1rem 0;
+      font-family: "Source Sans Pro", sans-serif;
+      font-size: 0.95rem;
+      color: #6a5e55;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    /* Section headers with icons */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-header h2 {
+      margin: 0;
+    }
+
+    .section-icon {
+      width: 64px;
+      height: auto;
+      flex-shrink: 0;
+    }
+
+    /* Grid + cards (reusing menu patterns) */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 1.1rem;
+      margin-top: 1rem;
+    }
+
+    @media (min-width: 680px) {
+      .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 980px) {
+      .menu-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    .menu-card {
+      background: #fbfbfb;
+      border: 1px solid rgba(157, 53, 21, 0.3);
+      border-radius: 12px;
+      padding: 0.9rem 0.9rem 1.1rem 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .menu-card img {
+      width: 100%;
+      max-height: 240px;
+      border-radius: 10px;
+      object-fit: contain;
+      background: #f2e6d4;
+      display: block;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .menu-card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-top: 0.4rem;
+    }
+
+    .menu-card-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .menu-card .item {
+      font-size: 1rem;
+      margin: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .price {
+      font-family: "Libre Bodoni", "libre-bodoni", serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      color: #9D3515;
+      white-space: nowrap;
+    }
+
+    .desc {
+      margin: 0;
+      font-family: "Source Sans Pro", sans-serif;
+      font-size: 0.95rem;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    /* FULL BLEED OUTLINED SCALLOP DIVIDER */
+    .wave-divider-outline {
+      width: 100vw;
+      height: 30px;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      overflow: hidden;
+      margin: 3rem 0;
+    }
+
+    .wave-divider-outline::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      background-image:
+        radial-gradient(circle at 20px 0,
+          transparent 18px,
+          #9D3515 19px,
+          #9D3515 20px,
+          transparent 21px);
+      background-size: 40px 30px;
+      background-repeat: repeat-x;
+    }
+
+    /* Footer nav — match boss's footer */
+    footer nav.footer-nav a {
+      font-family: "Source Sans Pro", sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #3d2b1f;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+
+    footer nav.footer-nav a.active {
+      font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        padding: 2.5rem 1.25rem 0 1.25rem;
+      }
+
+      .section-icon {
+        width: 48px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV (matches Home/About/Menu) -->
+  <div class="nav-container">
+    <a href="index.html" style="position: absolute; top: 1.5rem; left: 2rem; display: flex; align-items: center; gap: 0.5rem;">
+      <img src="images/honeyden.svg" alt="The Honey Den Logo" width="80px">
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="store.html" class="active">Store</a>
+      <a href="about.html">About Us</a>
+    </nav>
+  </div>
+
+  <!-- HERO HEADER (clean) -->
+  <header class="hero-header">
+    <h1>The Honey Den Store</h1>
+    <p>Bring the warmth of the Den home with you.</p>
+    <div class="wave-divider"></div>
+  </header>
+
+  <main>
+    <section class="store-intro">
+      <p>Small-batch coffee, wildflower honey, cozy mugs, and forest-inspired merchandise.</p>
+    </section>
+
+    <!-- COFFEE (BAGS / GROUND / BEANS) -->
+    <section class="menu-section" aria-labelledby="store-coffee-heading">
+      <div class="section-header">
+        <img src="images/honey-assets/paw.png" alt="Bear paw icon" class="section-icon">
+        <h2 id="store-coffee-heading">Coffee (Bags / Ground / Beans)</h2>
+      </div>
+
+      <div class="menu-grid">
+        <article class="menu-card">
+          <img src="images/honey-bear-blend-bag.png" alt="Honey Bear Blend Coffee Bag">
+          <div class="menu-card-body">
+            <div class="menu-card-heading">
+              <h3 class="item">Honey Bear Blend</h3>
+              <span class="price">$14.00</span>
+            </div>
+            <p class="desc">Smooth medium roast with caramel and nutty notes — an easy everyday favorite.</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <img src="images/golden-morning-roast-bag.png" alt="Golden Morning Roast Coffee Bag">
+          <div class="menu-card-body">
+            <div class="menu-card-heading">
+              <h3 class="item">Golden Morning Roast</h3>
+              <span class="price">$13.50</span>
+            </div>
+            <p class="desc">Bright and balanced with subtle honey undertones for a gentle wake-up.</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <img src="images/forest-mint-espresso-bag.png" alt="Forest Mint Espresso Coffee Bag">
+          <div class="menu-card-body">
+            <div class="menu-card-heading">
+              <h3 class="item">Forest Mint Espresso</h3>
+              <span class="price">$15.00</span>
+            </div>
+            <p class="desc">Dark roast with a hint of wild mint aroma — bold, with a cool forest finish.</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <img src="images/maple-grove-brew-bag.png" alt="Maple Grove Brew Coffee Bag">
+          <div class="menu-card-body">
+            <div class="menu-card-heading">
+              <h3 class="item">Maple Grove Brew</h3>
+              <span class="price">$14.50</span>
+            </div>
+            <p class="desc">Rich, nutty coffee with a touch of maple sweetness for cozy mornings.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- FULL-BLEED SCALLOP -->
+    <div class="wave-divider-outline"></div>
+
+    <!-- HONEY (PACKAGED JARS) -->
+    <section class="menu-section" aria-labelledby="store-honey-heading">
+      <div class="section-header">
+        <img src="images/honey-assets/honeyjar.png" alt="Honey jar icon" class="section-icon">
+        <h2 id="store-honey-heading">Honey (Packaged Jars)</h2>
+      </div>
+
+      <div class="menu-grid">
+        <article class="menu-card">
+          <img src="images/wildflower-honey.png" alt="Wildflower Honey Jar">
+          <div class="menu-card-body">
+            <div class="menu-card-heading">
+              <h3 class="item">Wildflower Honey Jar</h3>
+              <span class="price">$12.00</span>
+            </div>
+            <p class="desc">All-natural, floral honey from local blooms — ideal for tea, toast, and baking.</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <img src="images/cinnamon-clover-honey.png" alt="Cinnamon Clover Honey Jar">
+          <div class="menu-card-body">
+            <div class="menu-card-heading">
+              <h3 class="item">Cinnamon Clover Honey</h3>
+              <span class="price">$13.00</span>
+            </div>
+            <p class="desc">Lightly spiced honey perfect for baking, drizzling, and cozy desserts.</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <img src="images/creamed-honey.png" alt="Creamed Honey Jar">
+          <div class="menu-card-body">
+            <div class="menu-card-heading">
+              <h3 class="item">Creamed Honey</h3>
+              <span class="price">$10.00</span>
+            </div>
+            <p class="desc">Smooth, spreadable honey that melts into warm biscuits, toast, and oats.</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <img src="images/forest-blossom-honey.png" alt="Forest Blossom Honey Jar">
+          <div class="menu-card-body">
+            <div class="menu-card-heading">
+              <h3 class="item">Forest Blossom Honey</h3>
+              <span class="price">$14.00</span>
+            </div>
+            <p class="desc">Delicate floral honey with subtle herbal notes inspired by forest blooms.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- FULL-BLEED SCALLOP -->
+    <div class="wave-divider-outline"></div>
+
+    <!-- MUGS -->
+    <section class="menu-section" aria-labelledby="store-mugs-heading">
+      <div class="section-header">
+        <img src="images/honey-assets/blueberries.png" alt="Berry branch icon" class="section-icon">
+        <h2 id="store-mugs-heading">Mugs</h2>
+      </div>
+
+      <div class="menu-grid">
+        <article class="menu-card">
+          <img src="images/bear-mug.png" alt="Honey Bear Mug">
+          <div class="menu-card-body">
+            <div class="menu-card-heading">
+              <h3 class="item">Honey Bear Mug</h3>
+              <span class="price">$16.00</span>
+            </div>
+            <p class="desc">Ceramic mug featuring a charming honey bear illustration from the Den.</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <img src="images/golden-drizzle-latte-cup.png" alt="Golden Drizzle Latte Cup">
+          <div class="menu-card-body">
+            <div class="menu-card-heading">
+              <h3 class="item">Golden Drizzle Latte Cup</h3>
+              <span class="price">$14.50</span>
+            </div>
+            <p class="desc">Latte-sized mug with subtle honeycomb accents for your favorite drinks.</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <img src="images/forest-tea-mug.png" alt="Forest Tea Mug">
+          <div class="menu-card-body">
+            <div class="menu-card-heading">
+              <h3 class="item">Forest Tea Mug</h3>
+              <span class="price">$15.00</span>
+            </div>
+            <p class="desc">Sturdy woodland-themed mug for teas, lattes, and slow evenings.</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <img src="images/cozy-morning-mug.png" alt="Cozy Morning Mug">
+          <div class="menu-card-body">
+            <div class="menu-card-heading">
+              <h3 class="item">Cozy Morning Mug</h3>
+              <span class="price">$17.00</span>
+            </div>
+            <p class="desc">Oversized mug with a warm honey-hued gradient for extra-cozy mornings.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- FULL-BLEED SCALLOP -->
+    <div class="wave-divider-outline"></div>
+
+    <!-- MERCHANDISE -->
+    <section class="menu-section" aria-labelledby="store-merch-heading">
+      <div class="section-header">
+        <img src="images/honey-assets/leaf.png" alt="Leaf icon" class="section-icon">
+        <h2 id="store-merch-heading">Merchandise</h2>
+      </div>
+
+      <div class="menu-grid">
+        <article class="menu-card">
+          <img src="images/beekeeper-tote-bag.png" alt="Beekeeper Tote Bag">
+          <div class="menu-card-body">
+            <div class="menu-card-heading">
+              <h3 class="item">Beekeeper Tote Bag</h3>
+              <span class="price">$20.00</span>
+            </div>
+            <p class="desc">Canvas tote with honeycomb and bee design — perfect for market days.</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <img src="images/honey-spoon-set.png" alt="Honey Spoon Set">
+          <div class="menu-card-body">
+            <div class="menu-card-heading">
+              <h3 class="item">Honey Spoon Set</h3>
+              <span class="price">$15.00</span>
+            </div>
+            <p class="desc">Wooden honey dippers in a gift box for drizzling over everything.</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <img src="images/den-hoodie.png" alt="Den Hoodie">
+          <div class="menu-card-body">
+            <div class="menu-card-heading">
+              <h3 class="item">Den Hoodie</h3>
+              <span class="price">$40.00</span>
+            </div>
+            <p class="desc">Soft fleece hoodie embroidered with “The Honey Den.”</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <img src="images/wooden-coaster-set.png" alt="Wooden Coaster Set">
+          <div class="menu-card-body">
+            <div class="menu-card-heading">
+              <h3 class="item">Wooden Coaster Set</h3>
+              <span class="price">$18.00</span>
+            </div>
+            <p class="desc">Rustic coasters etched with honeycomb and forest patterns.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer
+    style="
+      background-color: #d59946;
+      padding: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    ">
+    <img src="images/honeyden.svg" style="width: 150px; height: auto;">
+    <nav class="footer-nav" style="position: static;">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="store.html" class="active">Store</a>
+      <a href="about.html">About Us</a>
+    </nav>
+  </footer>
+
+</body>
+</html>
+
 </html>
